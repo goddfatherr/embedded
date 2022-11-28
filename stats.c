@@ -43,9 +43,9 @@ int find_minimum(unsigned char *arr, int n){
 }
 
 int find_median(unsigned char *arr, int n){
-  unsigned char * arr1;
+  unsigned char arr1[SIZE];
   sort_array(arr,arr1,n);
-  if(n%2==0) return (arr1[n/2] + arr1[n/2 -1]);
+  if(n%2==0) return (arr1[n/2] + arr1[n/2 -1])/2;
   return arr1[n/2];
 }
 
@@ -75,22 +75,25 @@ void sort_array(unsigned char *arr1,unsigned char *arr2, int n){
 }
 
 void print_array(unsigned char *arr,int n){
-  printf("Original Array");
+  int count = 0; 
   for(int i = 0; i<n;i++){
-    printf("%d\t");
+    if(count>9) {
+      printf("\n"); count = 0; 
+    }
+    printf("%d\t",arr[i]); count++;
   }
-
+  printf("\n\n");
 }
 
 void print_statistics(unsigned char *arr1,unsigned char* arr2,int n){
   printf("Statistical Summary\n\n");
-  printf("1. Input Array:\n");
+  printf("1. Input Array:\n\n");
   print_array(arr1,n);
-  printf("2. Maximum: %d\n",find_maximum(arr1,n));
-  printf("3. Minimum: %d\n",find_minimum(arr1,n));
-  printf("4. Mean: %d\n",find_mean(arr1,n));
-  printf("5. Median: %d\n",find_median(arr1,n));
-  printf("6. Sorted Array:\n");
+  printf("2. Maximum: %d\n\n",find_maximum(arr1,n));
+  printf("3. Minimum: %d\n\n",find_minimum(arr1,n));
+  printf("4. Mean: %d\n\n",find_mean(arr1,n));
+  printf("5. Median: %d\n\n",find_median(arr1,n));
+  printf("6. Sorted Array:\n\n");
   print_array(arr2,n);
 
 }
@@ -104,6 +107,9 @@ void main() {
 
   /* Other Variable Declarations Go Here */
   /* Statistics and Printing Functions Go Here */
+  unsigned char arr2[SIZE];
+  sort_array(test,arr2,SIZE);   //sort arr2
+  print_statistics(test,arr2, SIZE);
 
 }
 
