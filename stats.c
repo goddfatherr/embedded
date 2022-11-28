@@ -9,10 +9,11 @@
  *
  *****************************************************************************/
 /**
- * @file <Add File Name> 
- * @brief <Add Brief Description Here >
+ * @file stats.c
+ * @brief Calculates Statistical parameters of a given sequence of unsigned char data items
  *
- * <Add Extended Description Here>
+ * This program employs various helper functions to compute some statistical parameters of 
+ * an unsigned character sequence and displays the summary on the console. 
  *
  * @author Asogwa Emmanuel Nnaemeka
  * @date 28th of November 2022 
@@ -34,7 +35,7 @@ int find_maximum(unsigned char *arr, int n){
   return tmp;   
 }
 
-int find_maximum(unsigned char *arr, int n){
+int find_minimum(unsigned char *arr, int n){
   int tmp = arr[0];
   for(int i=0;i<n;i++)
     if(arr[i]<tmp) tmp = arr[i];
@@ -42,9 +43,10 @@ int find_maximum(unsigned char *arr, int n){
 }
 
 int find_median(unsigned char *arr, int n){
-  sort_array(arr,n);
-  if(n%2==0) return (arr[n/2] + arr[n/2 -1]);
-  return arr[n/2];
+  unsigned char * arr1;
+  sort_array(arr,arr1,n);
+  if(n%2==0) return (arr1[n/2] + arr1[n/2 -1]);
+  return arr1[n/2];
 }
 
 int find_mean(unsigned char *arr, int n){
@@ -53,7 +55,7 @@ int find_mean(unsigned char *arr, int n){
     tmp+=arr[i];
   return tmp/n;  
 }
-unsigned char* sort_array(unsigned char *arr1,unsigned char *arr2, int n){
+void sort_array(unsigned char *arr1,unsigned char *arr2, int n){
   for(int i = 0;i<n;i++){
     arr2[i] = arr1[i];
   }
@@ -80,7 +82,18 @@ void print_array(unsigned char *arr,int n){
 
 }
 
+void print_statistics(unsigned char *arr1,unsigned char* arr2,int n){
+  printf("Statistical Summary\n\n");
+  printf("1. Input Array:\n");
+  print_array(arr1,n);
+  printf("2. Maximum: %d\n",find_maximum(arr1,n));
+  printf("3. Minimum: %d\n",find_minimum(arr1,n));
+  printf("4. Mean: %d\n",find_mean(arr1,n));
+  printf("5. Median: %d\n",find_median(arr1,n));
+  printf("6. Sorted Array:\n");
+  print_array(arr2,n);
 
+}
 void main() {
 
   unsigned char test[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,

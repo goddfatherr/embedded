@@ -88,29 +88,31 @@ int find_mean(unsigned char *arr, int n);
  *  
  * @return void
   */
-unsigned char* sort_array(unsigned char *arr1,unsigned char *arr2, int n){
+void  sort_array(unsigned char *arr1,unsigned char *arr2, int n);
 /**
  * @brief prints a given sequence of unsigned char data items
 
  * This function takes two paramenters- an unsigned char pointer arr and an integer n
  * representing the length of the input sequence and prints the sequence to console
- * @param *arr:  the unsigned int pointer pointing to the sequence.
+ * @param *arr:  the unsigned int pointer pointing to the sequence to print.
  * @param n: number of elements in the sequence 
  *  
  * @return void
   */
-void print_array(unsigned char *arr, int n);
+void print_array(unsigned char *arr,int n);
 
 /**
  * @brief Fomrats and pints the calculated statistical data to console
  *
  * This function prints statistical information obtained from the helper functions defined above.
  * 
- * @param nil 
+ * @param *arr1:  the unsigned int pointer pointing to the sequence.
+ * @param *arr2:  the unsigned int pointer pointing to the output of the sorted array.
+ * @param n: number of elements in the sequence 
  *
  * @return void
   */
-void print_statistics();
+void print_statistics(unsigned char *arr1,unsigned char* arr2,int n);
 
 
 
