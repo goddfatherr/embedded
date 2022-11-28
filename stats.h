@@ -23,14 +23,7 @@
 #ifndef __STATS_H__
 #define __STATS_H__
 
-/* Add Your Declarations and Function Comments here */ 
-int find_maximum(unsigned char *arr, int n);
-int find_minimum(unsigned char *arr, int n);
-int fnd_mean(unsigned char *arr, int n);
-int find_median(unsigned char *arr, int n);
-int sort_array(unsigned char *arr, int n);
-void print_array(unsigned char *arr, int n);
-void print_statistics();
+
 /**
  * @brief Finds the maximum of a given unsigned char data items
  *
@@ -87,16 +80,15 @@ int find_mean(unsigned char *arr, int n);
  * @brief Sorts a given sequence fro largest to smallest
  *
  * This function takes two parameters- an unsigned char pointer arr and an integer n
- * representing the length of the input sequence and returns a sorted sequence of the orginal data
- * froms largest to smallest
+ * representing the length of the input sequence and applies the bubble sorting algorithm
+ * to the sequence
  * 
  * @param *arr:  the unsigned int pointer pointing to the sequence.
  * @param n: number of elements in the sequence 
  *  
- * @return unsigned char pointer to the sorted array
+ * @return void
   */
-unsigned char* sort_array(unsigned char *arr, int n);
-
+unsigned char* sort_array(unsigned char *arr1,unsigned char *arr2, int n){
 /**
  * @brief prints a given sequence of unsigned char data items
 
